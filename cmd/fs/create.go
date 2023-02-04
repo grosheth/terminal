@@ -4,7 +4,6 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package fs
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -30,14 +29,6 @@ var CreateCmd = &cobra.Command{
 	Long:  `Command to create files and folder on the file system:`,
 
 	Run: func(cmd *cobra.Command, args []string) {
-
-		if resp, err := create(urlPath); err != nil {
-			fmt.Println(err)
-		} else {
-			fmt.Println(resp)
-		}
-		ping(urlPath)
-
 	},
 }
 

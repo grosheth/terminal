@@ -15,13 +15,13 @@ import (
 
 func main() {
 	cmd.Execute()
-	for {
-		new_line()
-		var cmd string
-		fmt.Scan(&cmd)
-		exec_command(cmd)
-		fmt.Println("You typed in:", cmd)
-	}
+	// for {
+	// 	new_line()
+	// var cmd string
+	// fmt.Scan(&cmd)
+	// exec_command(cmd)
+	// fmt.Println("You typed in:", cmd)
+	// }
 
 }
 

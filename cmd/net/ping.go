@@ -40,7 +40,7 @@ var PingCmd = &cobra.Command{
 	Long:  `ping hosts`,
 
 	Run: func(cmd *cobra.Command, args []string) {
-		cmd.Help()
+
 		if resp, err := ping(urlPath); err != nil {
 			fmt.Println(err)
 		} else {

@@ -6,6 +6,7 @@ package cmd
 import (
 	"os"
 
+	"github.com/grosheth/terminal/cmd/fs"
 	"github.com/grosheth/terminal/cmd/net"
 	"github.com/spf13/cobra"
 )
@@ -30,6 +31,7 @@ func Execute() {
 
 func addSubcommandPalettes() {
 	rootCmd.AddCommand(net.PingCmd)
+	rootCmd.AddCommand(fs.CreateCmd)
 }
 
 func init() {

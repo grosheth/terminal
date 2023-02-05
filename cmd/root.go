@@ -48,6 +48,7 @@ func addSubcommandPalettes() {
 	rootCmd.AddCommand(fs.CreateCmd)
 	rootCmd.AddCommand(fs.CopyCmd)
 	rootCmd.AddCommand(fs.DeleteCmd)
+	rootCmd.AddCommand(fs.ListCmd)
 }
 
 func init() {

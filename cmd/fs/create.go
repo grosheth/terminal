@@ -4,7 +4,6 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package fs
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -15,7 +14,7 @@ var (
 )
 
 func create_directory(dirname string) {
-	os.Mkdir(dirname, os.ModePerm)
+	os.MkdirAll(dirname, os.ModePerm)
 }
 
 var (
@@ -32,9 +31,12 @@ var CreateCmd = &cobra.Command{
 	Short: "Command to create a directory on the file system",
 	Long:  `Command to create a directory on the file system`,
 	Run: func(cmd *cobra.Command, args []string) {
-		create_file(filename)
-		create_directory(dirname)
-
+		if filename != "" {
+			create_file(filename)
+		}
+		if dirname != "" {
+			create_directory(dirname)
+		}
 	},
 }
 
@@ -43,9 +45,6 @@ func init() {
 	CreateCmd.Flags().StringVarP(&dirname, "directory", "d", "", "The directory to create")
 	CreateCmd.Flags().StringVarP(&filename, "file", "f", "", "Create a file in the current folder.")
 
-	if err := CreateCmd.MarkFlagRequired("directory"); err != nil {
-		fmt.Println(err)
-	}
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command

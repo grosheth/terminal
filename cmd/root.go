@@ -46,6 +46,8 @@ func Execute() {
 func addSubcommandPalettes() {
 	rootCmd.AddCommand(net.PingCmd)
 	rootCmd.AddCommand(fs.CreateCmd)
+	rootCmd.AddCommand(fs.CopyCmd)
+	rootCmd.AddCommand(fs.DeleteCmd)
 }
 
 func init() {

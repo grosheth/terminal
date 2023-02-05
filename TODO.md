@@ -4,7 +4,7 @@
 
 - ssh
 
-## basic commands
+## fs (filesystem commands)
 
 - create/copy/delete files and folders
 - List files in folder

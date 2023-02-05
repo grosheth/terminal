@@ -4,16 +4,21 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package fs
 
 import (
+	"log"
+	"os"
+
 	"github.com/spf13/cobra"
 )
 
 var (
-	fileDelete   string
-	folderDelete string
+	toDelete string
 )
 
 func delete() {
-
+	err := os.Remove(toDelete)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // deleteCmd represents the delete command
@@ -28,8 +33,7 @@ var DeleteCmd = &cobra.Command{
 
 func init() {
 
-	DeleteCmd.Flags().StringVarP(&dirname, "directory", "d", "", "The directory to delete")
-	DeleteCmd.Flags().StringVarP(&dirname, "file", "f", "", "The directory to delete")
+	DeleteCmd.Flags().StringVarP(&toDelete, "toDelete", "d", "", "The element to delete")
 
 	// Here you will define your flags and configuration settings.
 

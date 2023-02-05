@@ -4,6 +4,9 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package fs
 
 import (
+	"io/ioutil"
+	"log"
+
 	"github.com/spf13/cobra"
 )
 
@@ -14,6 +17,18 @@ var (
 
 func copy() {
 
+	copyDest = copySource + "_COPY"
+	bytesRead, err := ioutil.ReadFile(copySource)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = ioutil.WriteFile(copyDest, bytesRead, 0644)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // copyCmd represents the copy command
@@ -28,8 +43,7 @@ var CopyCmd = &cobra.Command{
 
 func init() {
 
-	CopyCmd.Flags().StringVarP(&dirname, "directory", "d", "", "The directory to copy")
-	CopyCmd.Flags().StringVarP(&dirname, "file", "f", "", "The directory to copy")
+	CopyCmd.Flags().StringVarP(&copySource, "copy", "c", "", "The element to copy")
 
 	// Here you will define your flags and configuration settings.
 

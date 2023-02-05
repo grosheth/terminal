@@ -10,16 +10,13 @@ import (
 )
 
 var (
-	dirname string
+	dirname  string
+	filename string
 )
 
 func create_directory(dirname string) {
 	os.MkdirAll(dirname, os.ModePerm)
 }
-
-var (
-	filename string
-)
 
 func create_file(filename string) {
 	os.Create(filename)

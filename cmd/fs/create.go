@@ -15,24 +15,35 @@ var (
 )
 
 func create_directory(dirname string) {
-	os.MkdirAll(dirname, os.ModePerm)
+	os.Mkdir(dirname, os.ModePerm)
 }
 
-// createdirCmd represents the createdir command
-var CreateDirCmd = &cobra.Command{
-	Use:   "createdir",
-	Short: "Command to create a file on the file system:",
-	Long:  `Command to create a file on the file system:`,
+var (
+	filename string
+)
+
+func create_file(filename string) {
+	os.Create(filename)
+}
+
+// create represents the create command
+var CreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Command to create a directory on the file system",
+	Long:  `Command to create a directory on the file system`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("createdir called")
+		create_file(filename)
+		create_directory(dirname)
+
 	},
 }
 
 func init() {
 
-	CreateDirCmd.Flags().StringVarP(&dirname, "directory", "d", "", "The directory to create")
+	CreateCmd.Flags().StringVarP(&dirname, "directory", "d", "", "The directory to create")
+	CreateCmd.Flags().StringVarP(&filename, "file", "f", "", "Create a file in the current folder.")
 
-	if err := CreateDirCmd.MarkFlagRequired("directory"); err != nil {
+	if err := CreateCmd.MarkFlagRequired("directory"); err != nil {
 		fmt.Println(err)
 	}
 	// Here you will define your flags and configuration settings.

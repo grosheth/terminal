@@ -7,6 +7,7 @@
 ## basic commands
 
 - create/copy/delete files and folders
+- List files in folder
 
 ## Git commands
 

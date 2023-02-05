@@ -5,33 +5,20 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"os/exec"
-	"os/user"
-	"time"
 
 	"github.com/grosheth/terminal/cmd"
 )
 
 func main() {
-	cmd.Execute()
-	// for {
-	// 	new_line()
-	// var cmd string
-	// fmt.Scan(&cmd)
-	// exec_command(cmd)
-	// fmt.Println("You typed in:", cmd)
-	// }
+	for {
+		cmd.Execute()
 
-}
-
-func new_line() {
-
-	username, _ := user.Current()
-	hostname, _ := os.Hostname()
-	dt := time.Now()
-
-	fmt.Println("-__>", username.Username, "@", hostname, dt.Format("15:04:05"))
+		var cmd string
+		fmt.Scan(&cmd)
+		// exec_command(cmd)
+		// fmt.Println("You typed in:", cmd)
+	}
 
 }
 

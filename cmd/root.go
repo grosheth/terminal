@@ -31,7 +31,8 @@ func Execute() {
 
 func addSubcommandPalettes() {
 	rootCmd.AddCommand(net.PingCmd)
-	rootCmd.AddCommand(fs.CreateCmd)
+	rootCmd.AddCommand(fs.CreateFileCmd)
+	rootCmd.AddCommand(fs.CreateDirCmd)
 }
 
 func init() {

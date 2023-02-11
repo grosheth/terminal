@@ -5,6 +5,7 @@ package fs
 
 import (
 	"fmt"
+	"io/ioutil"
 
 	"github.com/spf13/cobra"
 )
@@ -14,6 +15,13 @@ var (
 )
 
 func list() {
+	files, err := ioutil.ReadDir(".")
+	if err != nil {
+		fmt.Println(err)
+	}
+	for _, f := range files {
+		fmt.Println(f.Name())
+	}
 
 }
 
@@ -23,7 +31,7 @@ var ListCmd = &cobra.Command{
 	Short: "A brief description of your command",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("list called")
+		list()
 	},
 }
 

@@ -6,7 +6,7 @@
 
 ## fs (filesystem commands)
 
-- List files in folder
+-
 
 ## Git commands
 

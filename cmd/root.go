@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/grosheth/terminal/cmd/fs"
+	"github.com/grosheth/terminal/cmd/git"
 	"github.com/grosheth/terminal/cmd/net"
 	"github.com/spf13/cobra"
 )
@@ -49,6 +50,8 @@ func addSubcommandPalettes() {
 	rootCmd.AddCommand(fs.CopyCmd)
 	rootCmd.AddCommand(fs.DeleteCmd)
 	rootCmd.AddCommand(fs.ListCmd)
+	rootCmd.AddCommand(git.InitCmd)
+	rootCmd.AddCommand(git.PushCmd)
 }
 
 func init() {

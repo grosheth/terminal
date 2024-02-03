@@ -5,24 +5,21 @@ package fs
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 
 	"github.com/spf13/cobra"
 )
 
-var (
-	pathList string
-)
+var pathList string
 
 func list() {
-	files, err := ioutil.ReadDir(".")
+	files, err := os.ReadDir(".")
 	if err != nil {
 		fmt.Println(err)
 	}
 	for _, f := range files {
 		fmt.Println(f.Name())
 	}
-
 }
 
 // listCmd represents the list command
@@ -36,7 +33,6 @@ var ListCmd = &cobra.Command{
 }
 
 func init() {
-
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command

@@ -4,8 +4,8 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package fs
 
 import (
-	"io/ioutil"
 	"log"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -16,15 +16,13 @@ var (
 )
 
 func copy() {
-
 	copyDest = copySource + "_COPY"
-	bytesRead, err := ioutil.ReadFile(copySource)
-
+	bytesRead, err := os.ReadFile(copySource)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = ioutil.WriteFile(copyDest, bytesRead, 0644)
+	err = os.WriteFile(copyDest, bytesRead, 0644)
 
 	if err != nil {
 		log.Fatal(err)
@@ -42,7 +40,5 @@ var CopyCmd = &cobra.Command{
 }
 
 func init() {
-
 	CopyCmd.Flags().StringVarP(&copySource, "copy", "c", "", "The element to copy")
-
 }

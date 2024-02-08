@@ -5,6 +5,7 @@ package git
 
 import (
 	"fmt"
+	"os/exec"
 
 	"github.com/spf13/cobra"
 )
@@ -14,8 +15,11 @@ var (
 	info string
 )
 
-func push() {
-
+func push(message string) {
+	command := "git add --all"
+	cmd := exec.Command(command)
+	command := fmt.Sprintf("git commit -m", message)
+	cmd := exec.Command(command)
 }
 
 // pushCmd represents the push command
@@ -25,9 +29,9 @@ var PushCmd = &cobra.Command{
 	Long:  `Git add,commit and push`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("push called")
+		push()
 	},
 }
 
 func init() {
-
 }

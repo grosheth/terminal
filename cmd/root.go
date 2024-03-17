@@ -30,10 +30,8 @@ var rootCmd = &cobra.Command{
 	Use:   "terminal",
 	Short: "A brief description of your application",
 	Long: `
-	Oii mate, do you hate CMD? 
-	Well I have a much worse CLI Option for you.
-	Get ready for... Terminal.
-	I want it to work on Windows and Linux and that's about it`,
+    Veri bad terminal emulator in Go
+  `,
 }
 
 func Execute() {
@@ -51,7 +49,7 @@ func addSubcommandPalettes() {
 	rootCmd.AddCommand(fs.DeleteCmd)
 	rootCmd.AddCommand(fs.ListCmd)
 	rootCmd.AddCommand(git.InitCmd)
-	rootCmd.AddCommand(git.PushCmd)
+	// rootCmd.AddCommand(git.PushCmd)
 }
 
 func init() {
